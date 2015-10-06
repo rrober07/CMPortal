@@ -1,0 +1,26 @@
+﻿@using Rma.CMPortal.WebUi.Helpers
+@using Rma.CMPortal.WebUi.Models
+@using Rma.CMPortal.WebUi.Controllers
+@model dynamic
+
+@{
+    ViewBag.Title = "TFS Reports";
+}
+
+<h1 class="page-header">
+    Reports
+</h1>
+
+@(Html.Angular().GridFor<TfsController>(c => c.TFSBranches())
+    .Title("Tfs Branch Defintions")
+    .Columns<TfsBranchViewModel>(config =>
+            {
+                config.Add(x => x.Project);
+                config.Add(x => x.Branch);
+                config.Add(x => x.Project);
+                config.Add(x => x.Owner);
+                config.Add(x => x.DateCreated, "Date Created","date: 'MM/dd/yyyy'");
+            }
+    ))
+
+

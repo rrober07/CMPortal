@@ -1,0 +1,25 @@
+﻿@using Rma.CMPortal.WebUi.Helpers
+@using Rma.CMPortal.WebUi.Models
+@using Rma.CMPortal.WebUi.Controllers
+@model dynamic
+
+@{
+	ViewBag.Title = "Submitters";
+}
+
+<h1 class="page-header">
+    Submitters
+</h1>
+
+@(Html.Angular().GridFor<SubmittersController>(c => c.All())
+    .Title("Submitter List")
+    .EnableFiltering(true)
+    .Columns<SubmitterViewModel>(config =>
+            {
+                config.Add(x => x.DisplayName);
+                config.Add(x => x.FirstName);
+                config.Add(x => x.LastName);
+                config.Add(x => x.Active);
+                config.Add(x => x.DateUpdated, "Date Updated", "date: 'MM/dd/yyyy'");
+            }
+    ))

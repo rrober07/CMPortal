@@ -1,0 +1,16 @@
+﻿@using Rma.CMPortal.WebUi.Helpers
+@model Rma.CMPortal.WebUi.Models.Scores.ScoreVm
+@{
+    ViewBag.Title = "Submitters";
+}
+
+<div ng-controller="SubmitterListController as vm">
+    <h1 class="page-header">
+        Customers
+        <a class="pull-right" href="" ng-click="vm.add()"><i class="fa fa-plus-circle"></i></a>
+    </h1>
+    <div class="submitter-list">
+        <customer-details ng-repeat="submitter in vm.submitters" submitter="submitter"></customer-details>
+    </div>
+</div>
+
